@@ -1,166 +1,144 @@
-#  Winter Hackathon - Repository Setup Guide
+# Verity
 
-Welcome to the Winter Hackathon organized by **Sceptix** and **GDG SJEC**! To track your progress and collaborate effectively, every team must fork the official repository and follow the steps below.
-
----
-
-##  Fork the Repository
-
-1. Go to the GitHub page: [https://github.com/gdgsjec/WinterHackathon-TEAM_NAME-](https://github.com/gdgsjec/WinterHackathon-TEAM_NAME-)
-2. Click on the **"Fork"** button in the upper-right corner of the page
-3. Assign the repository name as `WinterHackathon-<TeamName>`
-> 📝 **Note:** Please use **[PascalCase](https://pascal-case.com/)** for your team name.
-
-
-**Example:**
-```
-Repository Name: WinterHackathon-BossBandit
-```
+**Verity** is an AI-powered documentation quality checker that analyzes project repositories or uploaded ZIP files to evaluate the completeness, clarity, and reliability of technical documentation. It helps developers, students, and hackathon teams quickly understand whether a project is well-documented and ready for real-world use.
 
 ---
 
-##  Clone Your Forked Repository
+##  Problem Statement
 
-1. Go to your forked repository on GitHub
-2. Click the green **"Code"** button, then click the clipboard icon to copy the URL
-3. Open your terminal and run the following command to copy the repository to your local machine (replace `<repository-url>` with your forked repository URL):
+Many projects fail to communicate their purpose and usage clearly due to poor or incomplete documentation. Reviewers, judges, and new contributors often struggle to understand setup steps, features, or limitations.
+
+**Verity solves this by automatically validating documentation quality.**
+
+---
+
+##  Solution Overview
+
+Verity scans project documentation (such as `README.md`) and checks for the presence, structure, and clarity of essential sections. It provides instant feedback and a quality score.
+
+---
+
+##  Key Features
+
+*  **README Structure Validation** – Checks for mandatory sections like:
+
+  * Project Description
+  * Installation Steps
+  * Usage Instructions
+  * Tech Stack
+  * License
+*  **AI-based Content Analysis** – Evaluates clarity and relevance of documentation text
+*  **ZIP File Support** – Upload and analyze projects without GitHub integration
+*  **Fast & Lightweight** – No database required
+*  **Beginner-Friendly** – Useful for students, hackathons, and reviewers
+
+---
+
+##  Tech Stack
+
+* **Frontend:** HTML, CSS, JavaScript (or React – optional)
+* **Backend:** Python (Flask)
+* **AI/NLP:** Rule-based + lightweight AI logic
+* **Deployment:** Local / Manual deployment (ZIP-based)
+
+---
+
+## 📂 Project Structure
+
+```
+verity/
+├── backend/
+│   ├── app.py
+│   └── analyzer.py
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── sample_project.zip
+└── README.md
+```
+
+---
+
+##  Installation & Setup
+
+### Prerequisites
+
+* Python 3.x
+
+### Steps
 
 ```bash
+# Clone the repository
 git clone <repository-url>
+
+# Navigate to backend
+cd backend
+
+# Install dependencies
+pip install flask
+
+# Run the server
+python app.py
 ```
+
+Open `index.html` from the frontend folder in your browser.
 
 ---
 
-##  Start Working on Your Project
+##  How It Works
 
-Begin building your solution! Collaborate with your teammates and push changes regularly.
+1. User uploads a ZIP file or README
+2. Backend extracts and scans documentation
+3. Verity checks for required sections
+4. AI logic analyzes content quality
+5. Results and score are displayed
 
 ---
-## Update the README (Mandatory)
 
-Before writing any code, replace the existing README.md with information specific to your project.
-Your README is the first thing mentors and judges will see, so make sure it clearly explains what you built and why.
-You can replace the README with the recommended template below and update the contents as you work on the project.
+##  Use Cases
 
-### Recommended Format for README:
-Use the structure below:
-```
- # Project Name
+* Hackathon project evaluation
+* Student project review
+* Open-source contribution checks
+* Documentation quality audits
 
-## Description
-Briefly explain what your project does, the problem it solves, and who it is for.
+---
 
-# Demo Video Link: <insert Google Drive link to the demo video of the working of your project>
+##  Limitations
 
-## Features
-- Key feature 1
-- Key feature 2
-- Key feature 3
+* No real-time GitHub integration
+* AI analysis is lightweight (not LLM-based)
+* Works best with English documentation
 
-## Tech Stack
-List the technologies, frameworks, and tools used in the project.
+---
 
-## Google Technologies Used
-> ⚠️ Using Google products is **mandatory** for this hackathon.
+## 🔮 Future Enhancements
 
-List the Google technologies you used and clearly explain **why** you chose them.
+* GitHub repository integration
+* Advanced AI scoring model
+* PDF documentation support
+* Exportable reports
 
-**Example:**
-- **Firebase Authentication** – For secure and easy user authentication
-- **Firebase Firestore** – To store and manage real-time data
-- **Google Maps API** – To enable location-based features
+---
 
-## Setup Instructions
-Steps to run the project locally:
-1. Clone the repository
-2. Install dependencies
-3. Add environment variables (if any)
-4. Run the project
+## License
+
+This project is licensed under the MIT License.
+
+---
 
 ## Team Members
-- Name 1
-- Name 2
-- Name 3
-```
+*Shaun Joshua Sequeira
+*Shreyas Bhat
+*Nidhi Kulal
+*Shreesha A S
 
-
-## Commit Your Changes
-
-Track and save your progress using Git:
-
-### Check the status of your changes
-```bash
-git status
-```
-
-### Stage your changes
-Use the `git add` command to stage the changes you want to commit:
-```bash
-git add .
-```
-
-### Commit with a meaningful message
-
-#### **Option 1: Simple Commit Format** (Beginner Friendly)
-Use this if you're new to Git:
-```bash
-git commit -m "Your descriptive commit message"
-```
-
-#### **Option 2: Conventional Commits** (Recommended)
-Follow this format for more structured, professional commit history:
-```bash
-git commit -m "<type>(<scope>): <subject>"
-```
-
-**Commit Types:**
-
-| Type | Purpose |
-|------|---------|
-| `feat` | For a new feature for the user, not a new feature for build script. Such commit will trigger a release bumping a MINOR version |
-| `fix` | For a bug fix for the user, not a fix to a build script. Such commit will trigger a release bumping a PATCH version |
-| `perf` | For performance improvements. Such commit will trigger a release bumping a PATCH version |
-| `docs` | For changes to the documentation |
-| `test` | For adding missing tests, refactoring tests; no production code change |
-| `style` | For formatting changes, missing semicolons, etc |
-| `refactor` | For refactoring production code, e.g. renaming a variable |
-| `build` | For updating build configuration, development tools or other changes irrelevant to the user |
-
-- **Scope:** Area of change (e.g., api, ui, auth)
-- **Subject:** One-line summary in present tense, no period at the end
-
-**Example:**
-```bash
-git commit -m "fix(button): fix submit button not working"
-```
 
 ---
 
-## Push Your Changes
+##  Acknowledgements
 
-Send your local commits to GitHub:
-```bash
-git push origin
-```
+Built as part of a hackathon project to improve software documentation quality.
 
----
 
-##  Tips for Success
-
-- **Commit often:** Small, frequent commits help track progress and fix bugs easily
-- **Write clear messages:** Describe what you did in each commit
-- **Collaborate:** Make sure everyone in your team contributes
-- **Stay organized:** Use branches for different features if needed
-- **Test regularly:** Ensure your code works before pushing
-
----
-
-##  Need Help?
-
-For any issues or doubts, reach out to the organizing team.
-
-**Happy Hacking!** ✨
-
----
-
-*Organized by Sceptix & GDG SJEC*  
