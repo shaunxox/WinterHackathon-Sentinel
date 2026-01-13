@@ -43,7 +43,7 @@ Verity scans project documentation (such as `README.md`) and checks for the pres
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 verity/
@@ -113,7 +113,7 @@ Open `index.html` from the frontend folder in your browser.
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 * GitHub repository integration
 * Advanced AI scoring model
